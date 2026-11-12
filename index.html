@@ -1,224 +1,4 @@
-<!DOCTYPE html>
-<html lang="ko" class="scroll-smooth">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>오늘의그림 | 초등교사 & 미술 에듀크리에이터</title>
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- FontAwesome Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,400&family=Noto+Sans+KR:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        galleryBg: '#FAF9F6',
-                        galleryCard: '#FFFFFF',
-                        galleryText: '#1C1C1E',
-                        galleryMuted: '#6E6E73',
-                        galleryBorder: '#E5E3DC',
-                        accentBlue: '#2A6872',
-                    },
-                    fontFamily: {
-                        sans: ['Noto Sans KR', 'sans-serif'],
-                        serif: ['Cormorant Garamond', 'serif'],
-                    }
-                }
-            }
-        }
-    </script>
-    
-    <style>
-        body {
-            background-color: #FAF9F6;
-            color: #1C1C1E;
-            font-family: 'Noto Sans KR', sans-serif;
-            -webkit-font-smoothing: antialiased;
-        }
-
-        .editorial-border {
-            border-color: #E5E3DC;
-        }
-
-        .img-zoom-container {
-            overflow: hidden;
-        }
-
-        .img-zoom-container img {
-            transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-
-        .img-zoom-container:hover img {
-            transform: scale(1.03);
-        }
-
-        /* Custom scrollbar styling */
-        ::-webkit-scrollbar {
-            width: 6px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #FAF9F6;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #D1CFCE;
-            border-radius: 3px;
-        }
-    </style>
-</head>
-<body class="min-h-screen flex flex-col justify-between selection:bg-stone-200">
-
-    <!-- Minimal Header Bar -->
-    <header class="w-full border-b editorial-border bg-galleryBg/90 backdrop-blur-md sticky top-0 z-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-8 py-4 flex items-center justify-between">
-            <div class="flex items-center space-x-3">
-                <span class="font-serif text-lg sm:text-xl font-medium tracking-wider text-stone-800">TODAY'S DRAWING</span>
-                <span class="text-xs text-stone-400 font-light hidden sm:inline-block">|</span>
-                <span class="text-xs text-stone-500 font-normal hidden sm:inline-block">초등교사 & 미술 에듀크리에이터</span>
-            </div>
-            <a href="#contact" class="text-xs font-medium tracking-wide uppercase px-4 py-2 border border-stone-800 rounded-full hover:bg-stone-900 hover:text-white transition-all">
-                Contact
-            </a>
-        </div>
-    </header>
-
-    <!-- Main Content Container -->
-    <main class="flex-grow">
-        <div class="max-w-7xl mx-auto px-4 sm:px-8 pt-8 sm:pt-16 pb-12">
-            
-            <!-- Hero Exhibition Section -->
-            <section class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center pb-16 border-b editorial-border">
-                
-                <!-- Hero Left: Profile & Concept Text -->
-                <div class="lg:col-span-7 space-y-6">
-                    <div class="inline-flex items-center space-x-2 px-3 py-1 bg-stone-100 rounded-full border border-stone-200/80">
-                        <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
-                        <span class="text-xs text-stone-600 font-medium">에듀크리에이터 포트폴리오</span>
-                    </div>
-
-                    <div class="space-y-1">
-                        <p class="font-serif italic text-2xl sm:text-3xl text-stone-500 mb-3">Art Class & Educational Content</p>
-                        <p class="text-stone-800 text-sm sm:text-base leading-snug max-w-2xl font-bold">
-                            안녕하세요! 초등교사이자 에듀크리에이터 '오늘의그림'입니다.
-                        </p>
-                        <p class="text-stone-800 text-sm sm:text-base leading-snug max-w-2xl font-bold">
-                            누구나 쉽고 재미있게 그리며 교실을 아름답게 채우는 미술 수업을 함께 만들어가요. 🎨
-                        </p>
-                    </div>
-
-                    <!-- Tags as clean inline pills -->
-                    <div class="flex flex-wrap gap-2 pt-2">
-                        <span class="text-xs text-stone-700 bg-white border border-stone-200 px-3 py-1.5 rounded-md font-medium shadow-2xs">#초등미술</span>
-                        <span class="text-xs text-stone-700 bg-white border border-stone-200 px-3 py-1.5 rounded-md font-medium shadow-2xs">#수채화·오일파스텔</span>
-                        <span class="text-xs text-stone-700 bg-white border border-stone-200 px-3 py-1.5 rounded-md font-medium shadow-2xs">#수업도안나눔</span>
-                        <span class="text-xs text-stone-700 bg-white border border-stone-200 px-3 py-1.5 rounded-md font-medium shadow-2xs">#인스타그램 @oneul_gm</span>
-                    </div>
-                </div>
-
-                <!-- Hero Right: Profile Visual Anchor -->
-                <div class="lg:col-span-5 flex justify-center lg:justify-end">
-                    <div class="relative group max-w-[220px] sm:max-w-[260px] w-full">
-                        <div class="absolute -inset-1 bg-gradient-to-r from-stone-200 to-amber-100 rounded-2xl blur-md opacity-70 group-hover:opacity-100 transition duration-500"></div>
-                        <div class="relative bg-white p-2.5 rounded-2xl border border-stone-200 shadow-sm w-full">
-                            <div class="aspect-square rounded-xl overflow-hidden bg-stone-100 mb-2.5">
-                                <img src="https://i.postimg.cc/3N2kTp0Q/Kakao-Talk-Photo-2026-03-02-16-48-48.png" alt="오늘의그림 프로필" class="w-full h-full object-cover">
-                            </div>
-                            <div class="flex items-center justify-between px-1.5 py-0.5">
-                                <div>
-                                    <h2 class="text-xs font-bold text-stone-800">오늘의그림</h2>
-                                    <p class="text-[11px] text-stone-500">초등교사 & 미술 에듀크리에이터</p>
-                                </div>
-                                <span class="text-[10px] font-serif italic text-stone-400">Profile</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-            </section>
-
-            <!-- Artwork Gallery Section (Gallery Exhibition Style) -->
-            <section class="py-16">
-                <!-- Section Header -->
-                <div class="flex flex-col sm:flex-row sm:items-end justify-between mb-10 pb-4 border-b editorial-border">
-                    <div>
-                        <span class="font-serif italic text-stone-400 text-sm tracking-widest uppercase">Exhibition & Works</span>
-                        <h2 class="text-2xl sm:text-3xl font-bold text-stone-900 mt-1">주요 미술 수업 활동</h2>
-                    </div>
-                    <p class="text-xs text-stone-500 mt-2 sm:mt-0">학생들과 함께 만든 다채로운 교실 미술 활동 모음</p>
-                </div>
-
-                <!-- Gallery Grid with Asymmetric Visual Rhythm -->
-                <div class="grid grid-cols-1 md:grid-cols-12 gap-8">
-                    
-                    <!-- Artwork Card 1 (Featured Larger Layout) -->
-                    <div class="md:col-span-7 group">
-                        <div class="bg-white rounded-xl overflow-hidden border border-stone-200 shadow-2xs hover:shadow-md transition-all duration-300">
-                            <div class="aspect-16/10 img-zoom-container bg-stone-100 relative">
-                                <img src="https://i.postimg.cc/prxM7nfN/76c74591-606d-44c8-9489-051184ea1d5a.png" alt="수채화 바다 콜라주" class="w-full h-full object-cover">
-                                <div class="absolute top-3 left-3 bg-stone-900/80 backdrop-blur-md text-white text-[11px] px-3 py-1 rounded-full font-medium tracking-wide">
-                                    수채화·콜라주
-                                </div>
-                            </div>
-                            <div class="p-5 sm:p-6">
-                                <h3 class="font-bold text-stone-900 text-base sm:text-lg mb-2 group-hover:text-stone-600 transition-colors">
-                                    [❌도안] 너무너무 아름답고 화려한 수채화 , 바다 콜라주
-                                </h3>
-                                <p class="text-xs sm:text-sm text-stone-500 leading-relaxed font-light">
-                                    자유로운 기법과 오려붙이기로 표현하는 화려한 바다 풍경 작품
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Artwork Card 2 -->
-                    <div class="md:col-span-5 group flex flex-col">
-                        <div class="bg-white rounded-xl overflow-hidden border border-stone-200 shadow-2xs hover:shadow-md transition-all duration-300 flex-grow flex flex-col">
-                            <div class="aspect-4/3 img-zoom-container bg-stone-100 relative">
-                                <img src="https://i.postimg.cc/nV1yrrK9/f536b57d-7a7a-4bba-a6ed-313242053174.png" alt="로블록스 페이퍼크래프트" class="w-full h-full object-cover">
-                                <div class="absolute top-3 left-3 bg-stone-900/80 backdrop-blur-md text-white text-[11px] px-3 py-1 rounded-full font-medium tracking-wide">
-                                    페이퍼크래프트
-                                </div>
-                            </div>
-                            <div class="p-5 flex-grow flex flex-col justify-between">
-                                <div>
-                                    <h3 class="font-bold text-stone-900 text-base mb-2 group-hover:text-stone-600 transition-colors">
-                                        아이들이 열광하는!! 로블록스 페이퍼크래프트🙂
-                                    </h3>
-                                    <p class="text-xs sm:text-sm text-stone-500 leading-relaxed font-light">
-                                        아이들이 좋아하는 입체 캐릭터를 오리고 접어 완성하는 인기 만들기 작품
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Artwork Card 3 -->
-                    <div class="md:col-span-5 group flex flex-col">
-                        <div class="bg-white rounded-xl overflow-hidden border border-stone-200 shadow-2xs hover:shadow-md transition-all duration-300 flex-grow flex flex-col">
-                            <div class="aspect-4/3 img-zoom-container bg-stone-100 relative">
-                                <img src="https://i.postimg.cc/7hPQ011T/32a7c266-d569-4ce7-affb-7fc959cb89d6.png" alt="나만의 하리보 젤리 디자인하기" class="w-full h-full object-cover">
-                                <div class="absolute top-3 left-3 bg-stone-900/80 backdrop-blur-md text-white text-[11px] px-3 py-1 rounded-full font-medium tracking-wide">
-                                    디자인·도안
-                                </div>
-                            </div>
-                            <div class="p-5 flex-grow flex flex-col justify-between">
-                                <div>
-                                    <h3 class="font-bold text-stone-900 text-base mb-2 group-hover:text-stone-600 transition-colors">
-                                        🧸나만의 하리보 젤리 디자인하기🍬
-                                    </h3>
-                                    <p class="text-xs sm:text-sm text-stone-500 leading-relaxed font-light">
-                                        알록달록 귀여운 젤리 도안을 자유롭게 표현해보는 창의 미술 활동
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
+<!-- ... existing code ... -->
                     <!-- Artwork Card 4 (Featured Horizontal Fill Layout) -->
                     <div class="md:col-span-7 group">
                         <div class="bg-white rounded-xl overflow-hidden border border-stone-200 shadow-2xs hover:shadow-md transition-all duration-300">
@@ -241,143 +21,82 @@
 
                 </div>
 
-                <!-- See More Button (Indischool Link) -->
+                <!-- More Activity Button Linked to Indischool -->
                 <div class="mt-12 text-center">
                     <a href="https://indischool.com/@user768129/posts" target="_blank" rel="noopener" 
-                       class="inline-flex items-center space-x-2.5 px-7 py-3.5 bg-white border border-stone-300 hover:border-stone-800 rounded-full text-xs sm:text-sm font-medium text-stone-800 hover:bg-stone-900 hover:text-white transition-all duration-300 shadow-2xs hover:shadow-md group">
+                       class="inline-flex items-center space-x-2 bg-stone-900 text-white hover:bg-stone-800 px-6 py-3.5 rounded-full text-xs sm:text-sm font-medium tracking-wide transition-all shadow-sm hover:shadow-md">
                         <span>인디스쿨에서 더 많은 활동 보기</span>
-                        <i class="fa-solid fa-arrow-up-right-from-square text-xs text-stone-400 group-hover:text-white transition-colors"></i>
+                        <i class="fa-solid fa-arrow-right text-xs"></i>
                     </a>
                 </div>
             </section>
 
-            <!-- Social Channels Section (Integrated Minimal Links Strip) -->
-            <section class="py-12 border-t editorial-border">
-                <div class="mb-8">
-                    <span class="font-serif italic text-stone-400 text-sm tracking-widest uppercase">Channels & Archive</span>
-                    <h2 class="text-2xl font-bold text-stone-900 mt-1">오늘의그림 소셜 채널</h2>
+            <!-- Guestbook Section -->
+            <section id="guestbook" class="py-16 border-t editorial-border">
+                <div class="flex flex-col sm:flex-row sm:items-end justify-between mb-8 pb-4 border-b editorial-border">
+                    <div>
+                        <span class="font-serif italic text-stone-400 text-sm tracking-widest uppercase">Community & Thoughts</span>
+                        <h2 class="text-2xl sm:text-3xl font-bold text-stone-900 mt-1">방명록</h2>
+                    </div>
+                    <p class="text-xs text-stone-500 mt-2 sm:mt-0">선생님과 방문자분들의 따뜻한 한 마디를 남겨주세요 ✏️</p>
                 </div>
 
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                    
-                    <!-- YouTube Link -->
-                    <a href="https://www.youtube.com/channel/UCEqfP3XQfiK-9QPCcxcUx3w" target="_blank" rel="noopener" 
-                       class="group bg-white p-6 rounded-xl border border-stone-200 hover:border-stone-400 transition-all duration-300 flex flex-col justify-between hover:-translate-y-0.5">
-                        <div>
-                            <div class="flex items-center justify-between mb-4">
-                                <div class="w-10 h-10 rounded-full bg-rose-50 text-rose-600 flex items-center justify-center font-bold text-lg">
-                                    <i class="fa-brands fa-youtube"></i>
-                                </div>
-                                <span class="text-stone-400 group-hover:text-stone-900 transition-colors text-sm">
-                                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
-                                </span>
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+                    <!-- Guestbook Input Form -->
+                    <div class="lg:col-span-5 bg-white p-6 rounded-xl border border-stone-200 shadow-2xs">
+                        <h3 class="font-bold text-stone-900 text-base mb-4 flex items-center">
+                            <i class="fa-regular fa-pen-to-square mr-2 text-stone-600"></i>
+                            방명록 남기기
+                        </h3>
+                        <form id="guestbookForm" onsubmit="submitGuestbook(event)" class="space-y-4">
+                            <div>
+                                <label for="gbName" class="block text-xs font-semibold text-stone-700 mb-1">이름 / 닉네임</label>
+                                <input type="text" id="gbName" required placeholder="예: 햇살선생님"
+                                       class="w-full px-3.5 py-2 text-xs sm:text-sm bg-stone-50 border border-stone-200 rounded-lg focus:outline-none focus:bg-white focus:border-stone-800 transition-colors">
                             </div>
-                            <h3 class="font-bold text-stone-900 text-base mb-1">YouTube 오늘의그림</h3>
-                            <p class="text-xs text-stone-500 font-medium mb-3">초등 미술 수업 & 튜토리얼</p>
-                            <p class="text-xs text-stone-500 leading-relaxed font-light">
-                                수채화, 오일파스텔, 페이퍼크래프트 등 교실에서 활용하기 좋은 미술 수업 영상과 도안 활용법을 소개합니다.
-                            </p>
-                        </div>
-                        <div class="mt-6 pt-4 border-t border-stone-100 flex items-center justify-between text-xs font-semibold text-rose-600">
-                            <span>유튜브 채널 방문하기</span>
-                            <i class="fa-solid fa-chevron-right text-[10px] group-hover:translate-x-1 transition-transform"></i>
-                        </div>
-                    </a>
-
-                    <!-- Naver Blog Link -->
-                    <a href="https://blog.naver.com/ohgrimn" target="_blank" rel="noopener" 
-                       class="group bg-white p-6 rounded-xl border border-stone-200 hover:border-stone-400 transition-all duration-300 flex flex-col justify-between hover:-translate-y-0.5">
-                        <div>
-                            <div class="flex items-center justify-between mb-4">
-                                <div class="w-10 h-10 rounded-full bg-emerald-50 text-emerald-600 flex items-center justify-center font-bold text-lg">
-                                    <i class="fa-solid fa-blog"></i>
-                                </div>
-                                <span class="text-stone-400 group-hover:text-stone-900 transition-colors text-sm">
-                                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
-                                </span>
+                            <div>
+                                <label for="gbMessage" class="block text-xs font-semibold text-stone-700 mb-1">응원 메시지</label>
+                                <textarea id="gbMessage" required rows="4" placeholder="미술 수업 도안 정말 잘 쓰고 있습니다!"
+                                          class="w-full px-3.5 py-2 text-xs sm:text-sm bg-stone-50 border border-stone-200 rounded-lg focus:outline-none focus:bg-white focus:border-stone-800 transition-colors resize-none"></textarea>
                             </div>
-                            <h3 class="font-bold text-stone-900 text-base mb-1">네이버 블로그</h3>
-                            <p class="text-xs text-stone-500 font-medium mb-3">미술 수업 도안 무료 나눔</p>
-                            <p class="text-xs text-stone-500 leading-relaxed font-light">
-                                선생님들과 아이들을 위한 고화질 미술 도안과 출력용 활동지를 무료로 다운로드하실 수 있습니다.
-                            </p>
-                        </div>
-                        <div class="mt-6 pt-4 border-t border-stone-100 flex items-center justify-between text-xs font-semibold text-emerald-600">
-                            <span>네이버 블로그 방문하기</span>
-                            <i class="fa-solid fa-chevron-right text-[10px] group-hover:translate-x-1 transition-transform"></i>
-                        </div>
-                    </a>
+                            <button type="submit" id="gbSubmitBtn"
+                                    class="w-full bg-stone-900 hover:bg-stone-800 text-white text-xs sm:text-sm font-medium py-2.5 rounded-lg transition-colors flex items-center justify-center space-x-2">
+                                <span>작성 완료</span>
+                                <i class="fa-solid fa-paper-plane text-xs"></i>
+                            </button>
+                        </form>
+                    </div>
 
-                    <!-- Instagram Link -->
-                    <a href="https://www.instagram.com/oneul_gm" target="_blank" rel="noopener" 
-                       class="group bg-white p-6 rounded-xl border border-stone-200 hover:border-stone-400 transition-all duration-300 flex flex-col justify-between hover:-translate-y-0.5">
-                        <div>
-                            <div class="flex items-center justify-between mb-4">
-                                <div class="w-10 h-10 rounded-full bg-purple-50 text-purple-600 flex items-center justify-center font-bold text-lg">
-                                    <i class="fa-brands fa-instagram"></i>
-                                </div>
-                                <span class="text-stone-400 group-hover:text-stone-900 transition-colors text-sm">
-                                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
-                                </span>
+                    <!-- Guestbook List Area -->
+                    <div class="lg:col-span-7 bg-white p-6 rounded-xl border border-stone-200 shadow-2xs">
+                        <div class="flex items-center justify-between mb-4">
+                            <h3 class="font-bold text-stone-900 text-base flex items-center">
+                                <i class="fa-regular fa-comments mr-2 text-stone-600"></i>
+                                최근 방명록 목록
+                            </h3>
+                            <button onclick="fetchGuestbook()" class="text-xs text-stone-500 hover:text-stone-900 transition-colors flex items-center space-x-1">
+                                <i class="fa-solid fa-rotate-right"></i>
+                                <span>새로고침</span>
+                            </button>
+                        </div>
+
+                        <!-- Messages Container -->
+                        <div id="guestbookList" class="space-y-3 max-h-[420px] overflow-y-auto pr-1">
+                            <div class="text-center py-10 text-stone-400 text-xs font-light">
+                                <i class="fa-solid fa-spinner fa-spin text-stone-300 text-lg mb-2"></i>
+                                <p>방명록 데이터를 가져오는 중입니다...</p>
                             </div>
-                            <h3 class="font-bold text-stone-900 text-base mb-1">인스타그램</h3>
-                            <p class="text-xs text-stone-500 font-medium mb-3">@oneul_gm</p>
-                            <p class="text-xs text-stone-500 leading-relaxed font-light">
-                                빠른 미술 팁, 교실 속 소소한 그림 작업과 일상을 인스타그램 릴스와 피드로 소통하고 공유합니다.
-                            </p>
-                        </div>
-                        <div class="mt-6 pt-4 border-t border-stone-100 flex items-center justify-between text-xs font-semibold text-purple-600">
-                            <span>인스타그램 바로가기</span>
-                            <i class="fa-solid fa-chevron-right text-[10px] group-hover:translate-x-1 transition-transform"></i>
-                        </div>
-                    </a>
-
-                </div>
-            </section>
-
-            <!-- Contact Section -->
-            <section id="contact" class="pt-12 pb-6 border-t editorial-border">
-                <div class="bg-stone-900 text-white rounded-2xl p-8 sm:p-12 text-center relative overflow-hidden">
-                    <div class="max-w-xl mx-auto space-y-4 relative z-10">
-                        <span class="font-serif italic text-stone-400 text-sm tracking-widest uppercase">Inquiry & Collaboration</span>
-                        <h3 class="text-xl sm:text-2xl font-bold">협업 및 강연·수업 문의</h3>
-                        <p class="text-xs sm:text-sm text-stone-400 font-light">
-                            공식 메일로 연락해 주시면 빠르게 확인 후 답변드립니다.
-                        </p>
-
-                        <div class="pt-2">
-                            <div class="inline-flex items-center justify-center bg-stone-800 border border-stone-700 rounded-full px-4 py-2 text-xs sm:text-sm">
-                                <i class="fa-regular fa-envelope text-stone-400 mr-2.5"></i>
-                                <span id="emailText" class="font-mono text-stone-200 mr-3 select-all">ogrim6012@gmail.com</span>
-                                <button onclick="copyEmail()" class="bg-white hover:bg-stone-200 text-stone-900 text-xs font-bold px-3 py-1 rounded-full transition-colors flex items-center space-x-1">
-                                    <i class="fa-regular fa-copy text-xs"></i>
-                                    <span id="copyBtnText">복사</span>
-                                </button>
-                            </div>
-                        </div>
-
-                        <!-- Toast Alert -->
-                        <div id="copyToast" class="hidden text-xs text-emerald-400 font-medium flex items-center justify-center space-x-1.5 pt-1">
-                            <i class="fa-solid fa-circle-check"></i>
-                            <span>이메일 주소가 클립보드에 복사되었습니다!</span>
                         </div>
                     </div>
                 </div>
             </section>
 
-        </div>
-    </main>
-
-    <!-- Footer -->
-    <footer class="py-8 text-center text-xs text-stone-400 border-t editorial-border bg-white">
-        <div class="max-w-7xl mx-auto px-4">
-            <p class="font-serif italic text-stone-500 mb-1">TODAY'S DRAWING PORTFOLIO</p>
-            <p>© 2026 오늘의그림. All rights reserved.</p>
-            <p class="mt-1 text-[11px] text-stone-400 font-light">초등교사 & 미술 에듀크리에이터 | 교육 콘텐츠 포트폴리오</p>
-        </div>
-    </footer>
-
+            <!-- Social Channels Section (Integrated Minimal Links Strip) -->
+<!-- ... existing code ... -->
     <script>
+        const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzoxDqfXbM-5uT5zKq0RGvXnjIoS31H5cd81kUzMJGgcZq0K9uMd1FMYps1odyubTtQtg/exec";
+
+        // 이메일 복사 기능
         function copyEmail() {
             const email = "ogrim6012@gmail.com";
             
@@ -399,6 +118,101 @@
                 toast.classList.add("hidden");
             }, 2500);
         }
+
+        // 방명록 데이터 불러오기 (GET)
+        async function fetchGuestbook() {
+            const listEl = document.getElementById("guestbookList");
+            listEl.innerHTML = `
+                <div class="text-center py-10 text-stone-400 text-xs font-light">
+                    <i class="fa-solid fa-spinner fa-spin text-stone-300 text-lg mb-2"></i>
+                    <p>방명록 데이터를 불러오는 중입니다...</p>
+                </div>
+            `;
+
+            try {
+                const response = await fetch(APPS_SCRIPT_URL);
+                const json = await response.json();
+
+                if (json.status === "success" && json.data && json.data.length > 0) {
+                    listEl.innerHTML = json.data.map(item => `
+                        <div class="p-4 rounded-lg bg-stone-50 border border-stone-100 hover:border-stone-200 transition-colors">
+                            <div class="flex items-center justify-between mb-1.5">
+                                <span class="font-bold text-xs sm:text-sm text-stone-800">${escapeHtml(item.name)}</span>
+                                <span class="text-[11px] text-stone-400 font-mono">${escapeHtml(item.time)}</span>
+                            </div>
+                            <p class="text-xs sm:text-sm text-stone-600 leading-relaxed font-light whitespace-pre-wrap">${escapeHtml(item.message)}</p>
+                        </div>
+                    `).join("");
+                } else {
+                    listEl.innerHTML = `
+                        <div class="text-center py-10 text-stone-400 text-xs font-light">
+                            <p>아직 작성된 방명록이 없습니다. 첫 번째 방명록을 남겨보세요!</p>
+                        </div>
+                    `;
+                }
+            } catch (err) {
+                console.error("방명록 로딩 오류:", err);
+                listEl.innerHTML = `
+                    <div class="text-center py-8 text-stone-400 text-xs">
+                        <p class="text-rose-500 font-medium mb-1">방명록을 불러오는 데 실패했습니다.</p>
+                        <p class="text-[11px]">잠시 후 다시 시도해 주세요.</p>
+                    </div>
+                `;
+            }
+        }
+
+        // 방명록 등록하기 (POST - CORS 에러 없는 text/plain 전송 방식)
+        async function submitGuestbook(event) {
+            event.preventDefault();
+            
+            const nameInput = document.getElementById("gbName");
+            const messageInput = document.getElementById("gbMessage");
+            const btn = document.getElementById("gbSubmitBtn");
+
+            const name = nameInput.value.trim();
+            const message = messageInput.value.trim();
+
+            if (!name || !message) return;
+
+            btn.disabled = true;
+            btn.innerHTML = `<i class="fa-solid fa-spinner fa-spin text-xs"></i> <span>등록 중...</span>`;
+
+            try {
+                // CORS Preflight 옵션을 피하기 위해 Content-Type을 text/plain으로 설정하여 전송
+                await fetch(APPS_SCRIPT_URL, {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "text/plain;charset=utf-8"
+                    },
+                    body: JSON.stringify({ name: name, message: message })
+                });
+
+                // 성공 처리
+                nameInput.value = "";
+                messageInput.value = "";
+                await fetchGuestbook();
+            } catch (err) {
+                console.error("방명록 제출 오류:", err);
+                alert("방명록 등록 중 오류가 발생했습니다. 다시 시도해주세요.");
+            } finally {
+                btn.disabled = false;
+                btn.innerHTML = `<span>작성 완료</span> <i class="fa-solid fa-paper-plane text-xs"></i>`;
+            }
+        }
+
+        // HTML 태그 이스케이프 (XSS 방지)
+        function escapeHtml(str) {
+            if (!str) return '';
+            return String(str)
+                .replace(/&/g, "&amp;")
+                .replace(/</g, "&lt;")
+                .replace(/>/g, "&gt;")
+                .replace(/"/g, "&quot;")
+                .replace(/'/g, "&#039;");
+        }
+
+        // 페이지 로드시 방명록 가져오기
+        window.addEventListener("DOMContentLoaded", fetchGuestbook);
     </script>
 </body>
 </html>
